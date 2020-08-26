@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactCarsTable-TwoPlusPages.Web", "ReactCarsTable-TwoPlusPages.Web\ReactCarsTable-TwoPlusPages.Web.csproj", "{1DE6300E-5FE6-4CB1-9D89-020E6D5CB6B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactCarsTable-TwoPlusPages.Data", "ReactCarsTable-TwoPlusPages.Data\ReactCarsTable-TwoPlusPages.Data.csproj", "{0738D48F-5579-424E-BE82-2355158752D5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DE6300E-5FE6-4CB1-9D89-020E6D5CB6B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DE6300E-5FE6-4CB1-9D89-020E6D5CB6B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DE6300E-5FE6-4CB1-9D89-020E6D5CB6B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DE6300E-5FE6-4CB1-9D89-020E6D5CB6B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0738D48F-5579-424E-BE82-2355158752D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0738D48F-5579-424E-BE82-2355158752D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0738D48F-5579-424E-BE82-2355158752D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0738D48F-5579-424E-BE82-2355158752D5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E5D04CCB-E53E-4546-A1F8-91DEF32C168D}
+	EndGlobalSection
+EndGlobal
