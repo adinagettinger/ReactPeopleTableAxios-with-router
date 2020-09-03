@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ReactCarsTable_TwoPlusPages.Data
 {
-    class DataBaseContext : DbContext
+    public class DataBaseContext : DbContext
     {
         private string _connectionString;
 
@@ -18,7 +18,18 @@ namespace ReactCarsTable_TwoPlusPages.Data
         {
             ob.UseSqlServer(_connectionString);
         }
+
+        
+
         public DbSet<Person> people { get; set; }
         public DbSet<Car> cars { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Person>()
+                .HasMany(p => p.Cars)
+                .WithOne(c => c.Person)
+                .IsRequired();
+        }
     }
 }

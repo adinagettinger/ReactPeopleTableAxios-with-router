@@ -1,5 +1,6 @@
 ﻿import React from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 class AddCar extends React.Component {
     state = {
@@ -7,10 +8,20 @@ class AddCar extends React.Component {
             make: '',
             model: '',
             year: '',
-        }
+            personId: ''
+        },
+        CurrentPerson: ''
     }
-    onAddClick = () => {
-        alert(`you have successfully added a car for ${this.props.match.params.id}! `)
+    componentDidMount = async () => {
+        const response = await axios.get(`api/people/GetPersonForId?id=${this.props.match.params.id}`);
+        this.setState({ CurrentPerson: response.data });
+    }
+
+    onAddClick = async () => {
+        const { firstName, lastName } = this.state.CurrentPerson;
+        this.setState({ NewCar: { ...this.state.NewCar, personId: this.props.match.params.id } })
+        await axios.post('api/people/AddCarForPerson', { car: this.state.NewCar })
+        alert(`You have successfully added a car for ${firstName + ' ' + lastName}! `);
     }
     onTextChange = (e) => {
         const copyCar = { ...this.state.NewCar };
@@ -19,11 +30,12 @@ class AddCar extends React.Component {
     }
     render() {
         const { make, model, year } = this.state.NewCar;
+        const { firstName, lastName } = this.state.CurrentPerson;
         return (
 
 
             <div className="container well col-md-6 col-md-offset-3">
-                <h2 style={{ textAlign: "center" }}>Add a car for ${this.props.match.params.id}</h2>
+                <h2 style={{ textAlign: "center" }}>Add a car for {firstName + ' ' + lastName}</h2>
                 <input className="form-control" name="make" placeholder="make" type="text" value={make}/>
                 <input className="form-control" name="model" placeholder="model" type="text" value={model} />
                 <input className="form-control" name="year" placeholder="year" type="text" value={year}/>

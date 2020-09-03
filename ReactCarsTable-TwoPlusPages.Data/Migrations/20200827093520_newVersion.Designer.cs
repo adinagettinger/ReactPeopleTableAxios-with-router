@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ReactCarsTable_TwoPlusPages.Data;
 
 namespace ReactCarsTable_TwoPlusPages.Data.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    partial class DataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20200827093520_newVersion")]
+    partial class newVersion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,7 +60,7 @@ namespace ReactCarsTable_TwoPlusPages.Data.Migrations
 
             modelBuilder.Entity("ReactCarsTable_TwoPlusPages.Data.Car", b =>
                 {
-                    b.HasOne("ReactCarsTable_TwoPlusPages.Data.Person", "Person")
+                    b.HasOne("ReactCarsTable_TwoPlusPages.Data.Person")
                         .WithMany("Cars")
                         .HasForeignKey("PersonId")
                         .OnDelete(DeleteBehavior.Cascade);
