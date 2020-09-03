@@ -21,7 +21,7 @@ namespace ReactCarsTable_TwoPlusPages.Web.Controllers
         }
 
         [Route("GetAllPeople")]
-        public IEnumerable<Person> GetAllPeople()
+        public List<Person> GetAllPeople()
         {
             PeopleCarsManager pcm = new PeopleCarsManager(_connStr);
             List<Person> people =  pcm.GetAllPeople();

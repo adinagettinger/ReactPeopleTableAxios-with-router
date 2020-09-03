@@ -14,7 +14,7 @@ class PeopleTable extends React.Component {
         this.GetAllPeople();
     }
     GetAllPeople = async () => {
-        const response = await axios.get('api/people/GetAllPeople');
+        const response = await axios.get('api/people/GetAllPeople');        
         this.setState({ people: response.data, isLoading: false });
 
     }
