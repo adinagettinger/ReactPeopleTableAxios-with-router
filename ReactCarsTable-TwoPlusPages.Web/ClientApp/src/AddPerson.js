@@ -6,9 +6,7 @@ import axios from 'axios';
 class AddPerson extends React.Component {
     state = {
         NewPerson: {
-            firstName: '',
-            lastName: '',
-            age : 0
+            
         }
     }
     onAddClick = async () => {

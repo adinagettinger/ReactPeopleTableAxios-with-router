@@ -5,10 +5,7 @@ import axios from 'axios';
 class AddCar extends React.Component {
     state = {
         NewCar: {
-            make: '',
-            model: '',
-            year: 0,
-            personId: 0
+            
         },
         CurrentPerson: ''
     }
@@ -26,6 +23,7 @@ class AddCar extends React.Component {
         else {
             await axios.post('api/people/AddCarForPerson', { ...this.state.NewCar, year: +year, personId: +this.props.match.params.id });
             alert(`You have successfully added a car for ${firstName + ' ' + lastName}! `);
+            
         }
     }
     onTextChange = (e) => {
