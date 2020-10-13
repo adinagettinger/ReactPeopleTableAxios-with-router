@@ -53,10 +53,10 @@ namespace ReactCarsTable_TwoPlusPages.Web.Controllers
 
         [Route("DeleteCars")]
         [HttpPost]
-        public void DeleteCars(int personId)
+        public void DeleteCars(Person person)
         {
             PeopleCarsManager pcm = new PeopleCarsManager(_connStr);
-            pcm.deleteCarsForPerson(personId);
+            pcm.deleteCarsForPerson(person.Id);
         }
 
         [Route("GetPersonForId")]

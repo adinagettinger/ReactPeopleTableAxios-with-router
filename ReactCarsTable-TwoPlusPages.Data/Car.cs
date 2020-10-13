@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace ReactCarsTable_TwoPlusPages.Data
 {
@@ -10,6 +11,7 @@ namespace ReactCarsTable_TwoPlusPages.Data
         public int Year { get; set; }
         public int PersonId { get; set; }
 
+        
         public Person Person { get; set; }
 
     }

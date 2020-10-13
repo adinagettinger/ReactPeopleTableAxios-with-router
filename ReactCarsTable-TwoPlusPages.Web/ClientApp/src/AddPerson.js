@@ -8,11 +8,18 @@ class AddPerson extends React.Component {
         NewPerson: {
             firstName: '',
             lastName: '',
-            age : '',
+            age : 0
         }
     }
-    onAddClick = async () => {        
-        await axios.post('api/people/AddPerson', this.state.NewPerson);
+    onAddClick = async () => {
+        const { firstName, lastName, age } = this.state.NewPerson;
+        if (firstName === '' || lastName === '' || age === 0) {
+            alert(`The form was not completed.`);
+        }
+        else {
+            await axios.post('api/people/AddPerson', { ...this.state.NewPerson, age: +this.state.NewPerson.age });
+            this.props.history.push('/');
+        }
     }
     onTextChange = (e) => {
 
@@ -22,14 +29,17 @@ class AddPerson extends React.Component {
     render() {
         const { firstName, lastName, age } = this.state.NewPerson;
         return (
-            <div className=" well col-md-6 col-md-offset-3">
+            <div className="container well col-md-6 col-md-offset-3">
                 <h2 style={{ textAlign: "center" }}>Add a Person</h2>
                 <input onChange={this.onTextChange} className="form-control" name="firstName" placeholder="first name" type="text" value={firstName} />
+                <br />
                 <input onChange={this.onTextChange} className="form-control" name="lastName" placeholder="last name" type="text" value={lastName} />
-                <input onChange={this.onTextChange} className="form-control" name="age" placeholder="age" type="text" value={age}/>
-                <div className="row">
+                <br />
+                <input onChange={this.onTextChange} className="form-control" name="age" placeholder="age" type="text" value={age} />
+                <br />
+                <div className="row container">                    
+                    <button onClick={this.onAddClick} className="btn btn-success btn-block">Add</button>   
                     <Link to={`/`}>
-                        <button onClick={this.onAddClick} className="btn btn-success btn-block">Add</button>
                         <button className="btn btn-primary">Return</button>
                     </Link>
                 </div>

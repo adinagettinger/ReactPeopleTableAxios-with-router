@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
 
 namespace ReactCarsTable_TwoPlusPages.Web
 {
@@ -22,7 +23,10 @@ namespace ReactCarsTable_TwoPlusPages.Web
         {
 
             services.AddControllersWithViews();
-
+            services.AddMvc().AddNewtonsoftJson(
+          options => {
+              options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+          });
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -66,6 +70,7 @@ namespace ReactCarsTable_TwoPlusPages.Web
                     spa.UseReactDevelopmentServer(npmScript: "start");
                 }
             });
+
         }
     }
 }
